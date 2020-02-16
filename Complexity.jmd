@@ -12,11 +12,11 @@ Attach the packages to be used.
 
 ```julia; label="a217767d-beb7-4f13-a5d4-dd4ad4f52822"
 using BenchmarkTools
-using CSV, DataFrames     # data input and manipulation
-using Gadfly              # grammar of graphics in Julia
+using CSV, DataFrames, GLM # data input and manipulation - lm and glm
+using Gadfly               # grammar of graphics in Julia
 using MixedModels
-using RCall, RData        # communicate with R, load .rda, .rds, .RData files
-using Statistics          # basic stat summaries: mean, median, ...
+using RCall, RData         # communicate with R, load .rda, .rds, .RData files
+using Statistics           # basic stat summaries: mean, median, ...
 ```
 
 ```julia; label="825d5660-e406-4e40-8ac5-42a22a9acf8b"
@@ -52,7 +52,7 @@ plot(cellmeans, x=:load, y=:meanRT, color=:spkr,
 ```julia;label=ggplot2plot
 RCall.ijulia_setdevice(MIME("image/svg+xml"))
 R"""
-require(ggplot2, quietly=true)
+require(ggplot2, quietly=TRUE)
 ggplot($cellmeans, aes(x=load, y=meanRT, color=spkr,group=spkr:prec, linetype=prec)) + geom_point() + geom_line()
 """
 ```
