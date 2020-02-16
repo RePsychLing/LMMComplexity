@@ -1,0 +1,4 @@
+Manifest.toml
+*.ipynb
+*.html
+.ipynb_checkpoints/
